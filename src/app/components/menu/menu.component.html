@@ -1,1 +1,13 @@
-<p>menu works!</p>
+<div class="box">
+    Men
+    <i class="pi pi-check"></i>
+
+    <!-- <p-listbox [options]="Opciones" [(ngModel)]="sMenu" optionLabel="nombre" class="w-full md:w-56" /> -->
+    <p-listbox [options]="Opciones" [group]="true" [(ngModel)]="sMenu" >
+        <ng-template let-group #group>
+            <div class="flex items-center">
+                 <p-button pTooltip="{{ group.nombre }}" icon="pi {{group.icono}}" />            </div>
+        </ng-template>
+    </p-listbox>
+
+</div>
