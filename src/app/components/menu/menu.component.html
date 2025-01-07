@@ -1,13 +1,24 @@
-<div class="box">
-    Men
-    <i class="pi pi-check"></i>
+<div class="flex flex-column gap-3 box">
+    <div class="cab"> 
+        <p-button styleClass="border border-primary" pTooltip="OneCore" variant="outlined" severity="contrast" icon="pi pi-microsoft" />
+    </div>
 
-    <!-- <p-listbox [options]="Opciones" [(ngModel)]="sMenu" optionLabel="nombre" class="w-full md:w-56" /> -->
-    <p-listbox [options]="Opciones" [group]="true" [(ngModel)]="sMenu" >
-        <ng-template let-group #group>
-            <div class="flex items-center">
-                 <p-button pTooltip="{{ group.nombre }}" icon="pi {{group.icono}}" />            </div>
-        </ng-template>
-    </p-listbox>
+    <div class="itemGen">
+        @for (item of Opciones; track $index) {
+            <p-button styleClass="btnGen" [pTooltip]="item.nombre" [icon]="'pi ' + item.icono"  
+            [text]="item.bool" [variant]="item.variant"  [severity]="item.severity" 
+            (click)="op.toggle($event)"
+            />
+        }
+    </div>
+    <p-overlay-badge value="4" severity="danger" class="inline-flex">
+            <p-avatar label="RM" styleClass="w-2rem h-2rem" />
+    </p-overlay-badge>
 
 </div>
+
+<p-popover #op>
+        <h2>
+            Opciones de menu flotante
+        </h2>
+</p-popover>
