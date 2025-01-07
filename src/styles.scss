@@ -1,18 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.cdnfonts.com/css/jetbrains-mono');
 @import "primeicons/primeicons.css";
-@import 'primeflex/primeflex.scss';
-
-:root {
-    --bg-lig: #f8fafc;
-}
-
-*{
-    overflow: hidden;
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-
 html, p, span, h1,h2, h3,h4, h5, h6, b, i {
     font-family: 'JetBrains Mono', sans-serif;
 }
