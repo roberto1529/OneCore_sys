@@ -7,6 +7,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { DatePickerModule } from 'primeng/datepicker';
 import { InputOtpModule } from 'primeng/inputotp';
 import { ThemeService } from '../../services/theme.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -20,7 +21,10 @@ export class AuthComponent implements OnInit {
   fb: FormGroup;
   icons:string= "pi pi-moon";
   severity: 'success' | 'info' | 'warn' | 'danger' | 'help' | 'primary' | 'secondary' | 'contrast' | null | undefined = 'secondary';
-  constructor(private formBuilder:FormBuilder, public themeService: ThemeService){
+  constructor(private formBuilder:FormBuilder, 
+              public themeService: ThemeService,
+              private _router: Router
+            ){
     this.fb = this.formBuilder.group({
       usuario: ['', [Validators.required, Validators.minLength(3)]],
       pass: ['', [Validators.required, Validators.minLength(6)]],
@@ -57,7 +61,8 @@ export class AuthComponent implements OnInit {
 
   public onSubmit(): void {
     let error: boolean = false;
-
+      console.log(this.fb.value);
+      
       for (const control in this.fb.controls) {
         const controls = this.fb.get(control) as FormControl
         if (controls && controls.invalid) {
@@ -67,8 +72,12 @@ export class AuthComponent implements OnInit {
       }
 
       if (error) {
-
         return
+      }
+
+      if ((this.fb.value('usuario'))==='rmolina' && (this.fb.value('usuario'))==='Ana0107**') {
+          console.log('cambiando de ruta', this.fb.value);
+          
       }
 
   }
