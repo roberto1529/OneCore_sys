@@ -4,11 +4,17 @@ body , html {
 }
 .avatar{
   border-radius: 100%;
-  border: 2px solid #7cfc00;
+  border: 2px solid #4ade80;
+  margin-bottom: 2rem;
 }
 .f-li{
     font-weight: 400;
 }
+.border-rad{
+  border-radius: 13px !important;
+  color: #7d7d7d;
+}
+
 .advertencia{
   font-size: 10px;
   text-align: left;
@@ -18,5 +24,14 @@ body , html {
   margin-top: 2rem;
 }
 .text-danger {
-  color: red;
+  color: #ff6161;
+  font-size: 12px;
+}
+.iconSon{
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+.ColorBtn{
+  color:var(--text-color) ;
 }

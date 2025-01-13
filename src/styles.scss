@@ -1,25 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importación de fuentes y otros recursos */
 @import url('https://fonts.cdnfonts.com/css/jetbrains-mono');
 @import "primeflex/primeflex.css";
 @import "primeflex/themes/primeone-light.css";
+@import "primeflex/themes/primeone-dark.css";
 @import 'primeicons/primeicons.css';
 
-html, p, span, h1,h2, h3,h4, h5, h6, b, i {
-    font-family: 'JetBrains Mono', sans-serif;
+/* Definición de variables globales */
+:root {
+  --background-color-light: #ffffff;  /* Fondo blanco para el tema claro */
+  --background-color-dark: #292929;   /* Fondo oscuro para el tema oscuro */
+  --text-color-light: #000000;         /* Texto negro para el tema claro */
+  --text-color-dark: #ffffff;          /* Texto blanco para el tema oscuro */
+  --primary-color-light: #4ade80;      /* Color primario para el tema claro */
+  --primary-color-dark: #1a1a1a;       /* Color primario para el tema oscuro */
+  --button-background-light: #4ade80;  /* Fondo del botón para el tema claro */
+  --button-background-dark: #333333;   /* Fondo del botón para el tema oscuro */
 }
 
-.p-inputtext {
-  font-family: inherit;
-  font-feature-settings: inherit;
-  font-size: 1rem;
-  color: var(--p-inputtext-color);
-  background: var(--p-inputtext-background);
-  padding-block: var(--p-inputtext-padding-y);
-  padding-inline: var(--p-inputtext-padding-x);
-  border: 1px solid var(--p-inputtext-border-color);
-  transition: background var(--p-inputtext-transition-duration), color var(--p-inputtext-transition-duration), border-color var(--p-inputtext-transition-duration), outline-color var(--p-inputtext-transition-duration), box-shadow var(--p-inputtext-transition-duration);
-  appearance: none;
-  border-radius: var(--p-inputtext-border-radius);
-  outline-color: transparent;
-  box-shadow: var(--p-inputtext-shadow);
+/* Tema claro */
+[data-theme="primeone-light"] {
+  --background-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
+  --p-primary-color: var(--primary-color-light);
+  --p-button-background: var(--button-background-light);
+}
+
+/* Tema oscuro */
+[data-theme="primeone-dark"] {
+  --background-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+  --p-primary-color: var(--primary-color-dark);
+  --p-button-background: var(--button-background-dark);
+}
+
+html, p, span, h1, h2, h3, h4, h5, h6, b, i {
+  font-family: 'JetBrains Mono', sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
