@@ -14,12 +14,12 @@ export const appConfig: ApplicationConfig = {
             theme: {
                 preset: Aura,
                 options: {
-                  prefix: 'p',
-                  darkModeSelector: 'light',
-                  cssLayer: false
+                    prefix: 'p',
+                    darkModeSelector: 'light',
+                    cssLayer: true,
               }
             }
         }),
-        
+
     ]
 };

@@ -1,6 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.cdnfonts.com/css/jetbrains-mono');
-@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+@import "primeflex/themes/primeone-light.css";
+@import 'primeicons/primeicons.css';
+
 html, p, span, h1,h2, h3,h4, h5, h6, b, i {
     font-family: 'JetBrains Mono', sans-serif;
+}
+
+.p-inputtext {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-size: 1rem;
+  color: var(--p-inputtext-color);
+  background: var(--p-inputtext-background);
+  padding-block: var(--p-inputtext-padding-y);
+  padding-inline: var(--p-inputtext-padding-x);
+  border: 1px solid var(--p-inputtext-border-color);
+  transition: background var(--p-inputtext-transition-duration), color var(--p-inputtext-transition-duration), border-color var(--p-inputtext-transition-duration), outline-color var(--p-inputtext-transition-duration), box-shadow var(--p-inputtext-transition-duration);
+  appearance: none;
+  border-radius: var(--p-inputtext-border-radius);
+  outline-color: transparent;
+  box-shadow: var(--p-inputtext-shadow);
 }
