@@ -6,6 +6,7 @@ import { routes } from './app.routes';
 import { provideRouter, withHashLocation } from '@angular/router';
 
 export const appConfig: ApplicationConfig = {
+<<<<<<< HEAD
   providers: [
     // Optimiza el cambio de detección para mejorar el rendimiento
     provideZoneChangeDetection({ eventCoalescing: true, runCoalescing: true }),
@@ -27,4 +28,22 @@ export const appConfig: ApplicationConfig = {
       }
     })
   ]
+=======
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideAnimationsAsync(),
+        provideRouter(routes),
+        providePrimeNG({
+            theme: {
+                preset: Aura,
+                options: {
+                    prefix: 'p',
+                    darkModeSelector: 'light',
+                    cssLayer: true,
+              }
+            }
+        }),
+
+    ]
+>>>>>>> 363df961c503599038054d41ccf879b5df03a60f
 };
