@@ -7,30 +7,53 @@
 
 /* Definición de variables globales */
 :root {
-  --background-color-light: #ffffff;  /* Fondo blanco para el tema claro */
-  --background-color-dark: #292929;   /* Fondo oscuro para el tema oscuro */
-  --text-color-light: #000000;         /* Texto negro para el tema claro */
-  --text-color-dark: #ffffff;          /* Texto blanco para el tema oscuro */
-  --primary-color-light: #4ade80;      /* Color primario para el tema claro */
-  --primary-color-dark: #1a1a1a;       /* Color primario para el tema oscuro */
-  --button-background-light: #4ade80;  /* Fondo del botón para el tema claro */
-  --button-background-dark: #333333;   /* Fondo del botón para el tema oscuro */
+  // varibles light
+  --background-color-light: #ffffff;
+  --primary-color-light: #4ade80; 
+  --button-background-light: #4ade80;
+  --text-color-light: #272727;   
+  --border-solid-light: #42424273;
+  --boder-colors-hover-light: #4ade80;
+  // varibles dark
+
+  --text-color-dark: #ffffff; 
+  --border-solid-dark: #d8d8d8;
+  --primary-color-dark: #1a1a1a;  
+  --background-color-dark: #292929;    
+  --button-background-dark: #333333; 
+  --boder-colors-hover-dark: #4ade80;
+
 }
 
 /* Tema claro */
 [data-theme="primeone-light"] {
+  --p-card-background:  var(--background-color-light);
+  --p-toolbar-background:  var(--background-color-light);
+  --p-card-color: var(--text-color-light);
+  --p-button-primary-color: var(--text-color-light);
+  --p-button-text-plain-color: var(--text-color-light);
   --background-color: var(--background-color-light);
   --text-color: var(--text-color-light);
   --p-primary-color: var(--primary-color-light);
   --p-button-background: var(--button-background-light);
+  --boder-colors: var(--border-solid-light);
+  --boder-colors-hover: var(--boder-colors-hover-light);
+
 }
 
 /* Tema oscuro */
 [data-theme="primeone-dark"] {
+  --p-card-background:  var(--background-color-dark);
+  --p-toolbar-background: var(--background-color-dark);
+  --p-button-primary-color: var(--text-color-dark);
+  --p-card-color: var(--text-color-dark);
+  --p-button-text-plain-color: var(--text-color-dark);
   --background-color: var(--background-color-dark);
   --text-color: var(--text-color-dark);
   --p-primary-color: var(--primary-color-dark);
   --p-button-background: var(--button-background-dark);
+  --boder-colors: var(--border-solid-dark);
+  --boder-colors-hover: var(--boder-colors-hover-dark);
 }
 
 html, p, span, h1, h2, h3, h4, h5, h6, b, i {
@@ -39,5 +62,4 @@ html, p, span, h1, h2, h3, h4, h5, h6, b, i {
 
 body {
   background-color: var(--background-color);
-  color: var(--text-color);
 }

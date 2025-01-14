@@ -2,9 +2,15 @@ body , html {
   overflow-y: hidden !important;
   overflow-x: hidden !important;
 }
+.labl{
+  color: var(--text-color);
+}
+.labl:hover{
+  color: var(--boder-colors-hover);
+}
 .avatar{
   border-radius: 100%;
-  border: 2px solid #4ade80;
+  border: 1.5px solid #4ade80;
   margin-bottom: 2rem;
 }
 .f-li{
@@ -14,7 +20,9 @@ body , html {
   border-radius: 13px !important;
   color: #7d7d7d;
 }
-
+.titulo{
+  color: var(--text-color);
+}
 .advertencia{
   font-size: 10px;
   text-align: left;
@@ -32,6 +40,16 @@ body , html {
   right: 10px;
   top: 10px;
 }
+
 .ColorBtn{
   color:var(--text-color) ;
+}
+.input{
+  background-color: var(--background-color) !important;
+  border: 1px solid var(--boder-colors) !important;
+}
+
+.input:hover {
+  background-color: var(--background-color) !important;
+  border: 1px solid var(--boder-colors-hover) !important;
 }
