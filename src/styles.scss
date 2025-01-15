@@ -8,7 +8,7 @@
 /* Definición de variables globales */
 :root {
   // varibles light
-  --background-color-light: #ffffff;
+  --background-color-light: #f2f2f2;
   --primary-color-light: #4ade80; 
   --button-background-light: #4ade80;
   --text-color-light: #272727;   
@@ -43,6 +43,7 @@
 
 /* Tema oscuro */
 [data-theme="primeone-dark"] {
+  
   --p-card-background:  var(--background-color-dark);
   --p-toolbar-background: var(--background-color-dark);
   --p-button-primary-color: var(--text-color-dark);

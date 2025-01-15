@@ -6,16 +6,12 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { DataViewModule } from 'primeng/dataview';
 import { TypeContratos } from './type/dto.interfaces';
 import { CardModule } from 'primeng/card';
+import { ChipModule } from 'primeng/chip';
 
 @Component({
   selector: 'app-mods',
   imports: [
-    ToolbarModule,
-    ButtonModule,
-    AvatarModule,
-    AvatarGroupModule,
-    DataViewModule,
-    CardModule,
+    ToolbarModule,ButtonModule,AvatarModule,AvatarGroupModule,DataViewModule,CardModule,ChipModule
   ],
   templateUrl: './mods.component.html',
   styleUrl: './mods.component.scss',
@@ -47,7 +43,7 @@ export class ModsComponent implements OnInit {
       {
         id: 5,
         icono: 'pi pi-chart-scatter',
-        nombre: 'Moludlo Contable',
+        nombre: 'Modulo Contable',
         ruta: '/contabilidad/auditoria',
         status: true,
         fecha_init: '2025-05-01',
