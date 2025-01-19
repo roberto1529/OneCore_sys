@@ -7,28 +7,27 @@
 
 /* Definición de variables globales */
 :root {
-  // varibles light
+  /* Variables light */
   --background-color-light: #f2f2f2;
-  --primary-color-light: #4ade80; 
+  --primary-color-light: #4ade80;
   --button-background-light: #4ade80;
-  --text-color-light: #272727;   
+  --text-color-light: #272727;
   --border-solid-light: #42424273;
   --boder-colors-hover-light: #4ade80;
-  // varibles dark
 
-  --text-color-dark: #ffffff; 
+  /* Variables dark */
+  --text-color-dark: #ffffff;
   --border-solid-dark: #d8d8d8;
-  --primary-color-dark: #1a1a1a;  
-  --background-color-dark: #292929;    
-  --button-background-dark: #333333; 
+  --primary-color-dark: #1a1a1a;
+  --background-color-dark: #292929;
+  --button-background-dark: #333333;
   --boder-colors-hover-dark: #4ade80;
-
 }
 
 /* Tema claro */
 [data-theme="primeone-light"] {
-  --p-card-background:  var(--background-color-light);
-  --p-toolbar-background:  var(--background-color-light);
+  --p-card-background: var(--background-color-light);
+  --p-toolbar-background: var(--background-color-light);
   --p-card-color: var(--text-color-light);
   --p-button-primary-color: var(--text-color-light);
   --p-button-text-plain-color: var(--text-color-light);
@@ -38,13 +37,11 @@
   --p-button-background: var(--button-background-light);
   --boder-colors: var(--border-solid-light);
   --boder-colors-hover: var(--boder-colors-hover-light);
-
 }
 
 /* Tema oscuro */
 [data-theme="primeone-dark"] {
-  
-  --p-card-background:  var(--background-color-dark);
+  --p-card-background: var(--background-color-dark);
   --p-toolbar-background: var(--background-color-dark);
   --p-button-primary-color: var(--text-color-dark);
   --p-card-color: var(--text-color-dark);
@@ -64,3 +61,4 @@ html, p, span, h1, h2, h3, h4, h5, h6, b, i {
 body {
   background-color: var(--background-color);
 }
+

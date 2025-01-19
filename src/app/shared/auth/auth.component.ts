@@ -8,12 +8,13 @@ import { DatePickerModule } from 'primeng/datepicker';
 import { InputOtpModule } from 'primeng/inputotp';
 import { ThemeService } from '../../services/theme.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
   imports: [ReactiveFormsModule, ButtonModule, FloatLabelModule,IconFieldModule,InputIconModule,
-    DatePickerModule, InputOtpModule],
+    DatePickerModule, InputOtpModule, CommonModule],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
 })
@@ -21,6 +22,8 @@ export class AuthComponent implements OnInit {
   fb: FormGroup;
   icons:string= "pi pi-moon";
   severity: 'success' | 'info' | 'warn' | 'danger' | 'help' | 'primary' | 'secondary' | 'contrast' | null | undefined = 'secondary';
+  theme: string='';
+
   constructor(private formBuilder:FormBuilder,
               public themeService: ThemeService,
               private _router: Router
@@ -45,6 +48,7 @@ export class AuthComponent implements OnInit {
   public ColorTheme():void {
 
     const theme = this.themeService.toggleTheme();
+    this.theme = theme;
     console.log('theme', theme);
     if (theme === "primeone-dark") {
         this.icons = "pi pi-sun";

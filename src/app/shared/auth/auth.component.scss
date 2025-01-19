@@ -53,3 +53,149 @@ body , html {
   background-color: var(--background-color) !important;
   border: 1px solid var(--boder-colors-hover) !important;
 }
+
+.customerBGday {
+  background-image: url('./../../res/bg_des_dia.jpg');
+  margin: 1rem;
+  border-radius: 15px;
+  -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  animation: scale-up-hor-left 3.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+
+}
+
+.customerBGntg {
+  background-image: url('./../../res/bg_des_noc.jpg');
+  margin: 1rem;
+  border-radius: 15px;
+  -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  animation: scale-up-hor-left 3.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+
+}
+
+.creativeBox{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.cristal {
+  background: rgba(255, 255, 255, 0.2); /* Fondo blanco semi-transparente */
+  border-radius: 15px;
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Para Safari */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+
+ @-webkit-keyframes scale-up-hor-left {
+  0% {
+    -webkit-transform: scaleX(0.4);
+            transform: scaleX(0.4);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+}
+@keyframes scale-up-hor-left {
+  0% {
+    -webkit-transform: scaleX(0.4);
+            transform: scaleX(0.4);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+}
+
+
+
+/* Contenedor principal (grilla de 2 filas y 3 columnas) */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Tres columnas */
+  grid-template-rows: repeat(3, 1fr);    /* Dos filas */
+  gap: 10px;                             /* Espacio entre los elementos */
+  width: 255px;                          /* Ancho del contenedor */
+  height: 500px;                         /* Alto del contenedor */
+  overflow: hidden;                      /* Evita que los elementos se desborden */
+  border-radius: 8px;
+  border: 2px solid #000;
+  position: relative;
+}
+
+/* Estilo de las cartas (items) */
+.card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  opacity: 1;
+  transition: transform 2s ease-in-out;
+}
+
+/* Animación para mover los elementos en sentido de las manecillas del reloj */
+@keyframes rotateClockwise {
+  0% {
+    transform: translate(0, 0);
+  }
+  16.66% {
+    transform: translate(0, 105%);
+  }
+  33.33% {
+    transform: translate(0, 211%);
+  }
+  50% {
+    transform: translate(110%, 211%);
+  }
+  66.66% {
+    transform: translate(110%, 105%);
+  }
+  83.33% {
+    transform: translate(110%, 0);
+  }
+  // 100% {
+  //   transform: translate(0, 0);
+  // }
+}
+
+/* Aplicar la animación a cada carta con un retraso para crear el efecto circular */
+// .card-item:nth-child(1) {
+//   animation: rotateClockwise 25s infinite forwards;
+// }
+
+// .card-item:nth-child(3) {
+//   animation: rotateClockwise 25s infinite forwards;
+//   animation-delay: 2s;
+// }
+
+// .card-item:nth-child(3) {
+//   animation: rotateClockwise 12s infinite linear;
+//   animation-delay: 4s;
+// }
+
+// .card-item:nth-child(4) {
+//   animation: rotateClockwise 12s infinite linear;
+//   animation-delay: 6s;
+// }
+
+// .card-item:nth-child(5) {
+//   animation: rotateClockwise 12s infinite linear;
+//   animation-delay: 8s;
+// }
+
+// .card-item:nth-child(6) {
+//   animation: rotateClockwise 12s infinite linear;
+//   animation-delay: 10s;
+// }

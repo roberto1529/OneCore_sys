@@ -1,13 +1,24 @@
 <div class="h-screen">
   <div class="grid h-full w-full">
     <!-- Columna de Imagen (30% de la pantalla) -->
-    <div class="col bg-cover bg-center" style="background-image: url('https://placehold.co/800x700')">
+    <div class="col bg-cover bg-center creativeBox"
+    [ngClass]="{'customerBGntg': theme === 'primeone-dark', 'customerBGday': theme !== 'primeone-dark'}">
+
+    <div class="container">
+      <div class="card-item cristal">1</div>
+      <div class="card-item cristal">2</div>
+      <div class="card-item cristal">3</div>
+      <div class="card-item cristal">4</div>
+      <div class="card-item cristal">5</div>
+      <div class="card-item cristal">6</div>
+    </div>
+
 
     </div>
     <!-- Formulario de login  -->
     <p-button class="iconSon" [icon]="icons" [rounded]="true" [text]="true" [severity]="severity" (click)="ColorTheme()" />
-    <div class="col-fixed text-center p-5" style="width:390px;">
-     
+    <div class="col-fixed text-center p-5" style="width:400px;">
+
       <form [formGroup]="fb" (ngSubmit)="onSubmit()" class="separador p5">
         <img src="https://placehold.co/100x100" class="avatar" alt="Logo">
         <h3 class="text-left f-li titulo">Inicie Sesión</h3>
@@ -42,7 +53,7 @@
 
         </div>
         <br>
-        <button pButton label="Ingresar" type="Submit" icon="pi pi-sign-out" class="ColorBtn"></button> 
+        <button pButton label="Ingresar" type="Submit" icon="pi pi-sign-out" class="ColorBtn"></button>
 
       </form>
 
