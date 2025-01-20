@@ -1,23 +1,20 @@
-
 .customerBGday {
-  background-image: url('./../../res/bg_des_dia.jpg');
+  background-image: url("./../../res/bg_des_dia.jpg");
   margin: 1rem;
   border-radius: 15px;
-  -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-  animation: scale-up-hor-left 3.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-
+  -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 .customerBGntg {
-  background-image: url('./../../res/bg_des_noc.jpg');
+  background-image: url("./../../res/bg_des_noc.jpg");
   margin: 1rem;
   border-radius: 15px;
-  -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-  animation: scale-up-hor-left 3.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-
+  -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
-.creativeBox{
+.creativeBox {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -32,37 +29,39 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
 
+.iconSon {
+  position: relative;
+  float: right;
+}
 
- @-webkit-keyframes scale-up-hor-left {
+@-webkit-keyframes scale-up-hor-left {
   0% {
     -webkit-transform: scaleX(0.4);
-            transform: scaleX(0.4);
+    transform: scaleX(0.4);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
   100% {
     -webkit-transform: scaleX(1);
-            transform: scaleX(1);
+    transform: scaleX(1);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
 }
 @keyframes scale-up-hor-left {
   0% {
     -webkit-transform: scaleX(0.4);
-            transform: scaleX(0.4);
+    transform: scaleX(0.4);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
   100% {
     -webkit-transform: scaleX(1);
-            transform: scaleX(1);
+    transform: scaleX(1);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
 }
-
-
 
 /* Contenedor principal (grilla de 2 filas y 3 columnas) */
 .container {
@@ -79,7 +78,7 @@
 
 /* Estilo de las cartas (items) */
 .card-item {
-  display: flex ;
+  display: flex;
   justify-content: center;
   align-items: center;
   color: white;
@@ -91,28 +90,22 @@
   height: 160px;
 }
 
-
 /* Aplicar la animación a cada carta con un retraso para crear el efecto circular */
 .card-item:nth-child(1) {
   animation: rotateClockwise 12s infinite both;
 }
-
 .card-item:nth-child(3) {
   animation: rotateClockwisePos3 12s infinite both;
 }
-
 .card-item:nth-child(5) {
   animation: rotateClockwisePos5 12s infinite both;
 }
-
 .card-item:nth-child(6) {
   animation: rotateClockwisePos6 12s infinite both;
 }
-
 .card-item:nth-child(4) {
   animation: rotateClockwisePos4 12s infinite both;
 }
-
 .card-item:nth-child(2) {
   animation: rotateClockwisePos2 12s infinite both;
 }
@@ -137,6 +130,26 @@
     transform: translate(114%, 0);
   }
 }
+@keyframes rotateClockwisePos2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    16.66% {
+      transform: translate(-113%, -0%);
+    }
+    33.33% {
+      transform: translate(-113%, 107%);
+    }
+    50% {
+      transform: translate(-113%, 212%);
+    }
+    66.66% {
+      transform: translate(0, 212%);
+    }
+    83.33% {
+      transform: translate(0, 105%);
+    }
+  }
 @keyframes rotateClockwisePos3 {
   0% {
     transform: translate(0, 0);
@@ -157,6 +170,27 @@
     transform: translate(0, -105%);
   }
 }
+@keyframes rotateClockwisePos4 {
+    0% {
+      transform: translate(0, 0);
+    }
+    16.66% {
+      transform: translate(0, -105%);
+    }
+    33.33% {
+      transform: translate(-113%, -107%);
+    }
+    50% {
+      transform: translate(-113%, -0%);
+    }
+    66.66% {
+      transform: translate(-113%, 105%);
+    }
+    83.33% {
+      transform: translate(0, 105%);
+    }
+  }
+  
 @keyframes rotateClockwisePos5 {
   0% {
     transform: translate(0, 0);
@@ -197,43 +231,4 @@
     transform: translate(-113%, 0);
   }
 }
-@keyframes rotateClockwisePos4 {
-  0% {
-    transform: translate(0, 0);
-  }
-  16.66% {
-    transform: translate(0, -105%);
-  }
-  33.33% {
-      transform: translate(-113%, -107%);
-  }
-  50% {
-    transform: translate(-113%, -0%);
-  }
-  66.66% {
-    transform: translate(-113%, 105%);
-  }
-  83.33% {
-    transform: translate(0, 105%);
-  }
-}
-@keyframes rotateClockwisePos2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  16.66% {
-    transform: translate(-113%, -0%);
-  }
-  33.33% {
-      transform: translate(-113%, 107%);
-  }
-  50% {
-    transform: translate(-113%, 212%);
-  }
-  66.66% {
-    transform: translate(0, 212%);
-  }
-  83.33% {
-    transform: translate(0, 105%);
-  }
-}
+

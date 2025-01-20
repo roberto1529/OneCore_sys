@@ -6,11 +6,13 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputOtpModule } from 'primeng/inputotp';
 import { Router } from '@angular/router';
-
+import { FormularioService } from './formulario.service';
+import {Md5} from 'ts-md5';
 @Component({
   selector: 'sub-app-formulario',
+  standalone: true,
   imports: [ReactiveFormsModule, ButtonModule, FloatLabelModule,IconFieldModule,InputIconModule,
-            InputOtpModule],
+            InputOtpModule,],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.scss'
 })
@@ -19,7 +21,7 @@ export class FormularioComponent implements OnInit  {
     icons:string= "pi pi-moon";
     severity: 'success' | 'info' | 'warn' | 'danger' | 'help' | 'primary' | 'secondary' | 'contrast' | null | undefined = 'secondary';
 
-    constructor(private formBuilder:FormBuilder, private _router: Router){
+    constructor(private formBuilder:FormBuilder, private _router: Router, private service: FormularioService){
         this.fb = this.formBuilder.group({
             usuario: ['', [Validators.required, Validators.minLength(3)]],
             pass: ['', [Validators.required, Validators.minLength(6)]],
@@ -51,10 +53,16 @@ export class FormularioComponent implements OnInit  {
             return
           }
 
-          if (this.fb.value.usuario ==='rmol' && this.fb.value.pass ==='123456') {
-             this._router.navigate(['/modulos']);
-             console.log(this.fb.value);
-          }
+          this.fb.patchValue({ pass:  Md5.hashStr(this.fb.value.pass) });
+            
+          this.service.Auth_Service(this.fb.value).subscribe((res)=>{
+              console.log('Respuesta servidor =>', res);
+          });
+
+          /* if (this.fb.value.usuario ==='rmol' && this.fb.value.pass ==='123456') {
+          this._router.navigate(['/modulos']);
+             console.log(this.fb.value); 
+          } */
 
       }
 }

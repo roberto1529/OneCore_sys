@@ -6,9 +6,13 @@
   color: var(--boder-colors-hover);
 }
 .avatar{
-  border-radius: 100%;
-  border: 1.5px solid #4ade80;
-  margin-bottom: 2rem;
+
+  background: url('../../../res/logo.png');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: auto;
 }
 .f-li{
     font-weight: 400;
