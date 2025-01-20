@@ -1,0 +1,39 @@
+
+<form [formGroup]="fb" (ngSubmit)="onSubmit()" class="separador p5">
+  <img src="https://placehold.co/100x100" class="avatar" alt="Logo">
+  <h3 class="text-left f-li titulo">Inicie Sesión</h3>
+  <p class="advertencia">Por favor ingrese su usuario u clave. <br>
+    Luego ingrese a su correo y imgrese el token enviado.
+  </p>
+  <br>
+  <div class="field">
+
+    <p-floatlabel>
+      <input type="text" pInputText formControlName="usuario" class="input border-rad text-base surface-overlay p-2 border-1 border-solid surface-border border-round
+        appearance-none outline-none focus:border-primary w-full text-center" />
+      <label class="labl">Usuario</label>
+    </p-floatlabel>
+    @if (mensajeError('usuario', 'required')) {
+      <small class="text-danger">El campo Usuario es
+        obligatorio.</small>
+    }
+
+
+    <p-floatlabel class="mt-4">
+      <input type="password" pInputText formControlName="pass" class="input border-rad text-base surface-overlay p-2 border-1 border-solid surface-border border-round
+      appearance-none outline-none focus:border-primary w-full text-center" />
+      <label class="labl">Contraseña</label>
+    </p-floatlabel>
+    @if (mensajeError('pass', 'required')) {
+      <small class="text-danger">
+        El campo Contraseña es obligatorio
+      </small>
+    }
+
+
+  </div>
+  <br>
+  <button pButton label="Ingresar" type="Submit" icon="pi pi-sign-out" class="ColorBtn"></button>
+
+</form>
+
