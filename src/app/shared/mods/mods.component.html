@@ -1,1 +1,15 @@
-<p>mods works!</p>
+
+
+
+<div class="box mt-5">
+    <div class="flex gap-2 flex-wrap text-center" style="max-width: 90%">
+        @for (item of contrato; track $index) {
+            <div  class="CardSize">
+                <i class="icons pi {{item.icono}}"></i>
+                <h6 class="titulo">{{item.nombre}}</h6>
+                <br><hr>
+                <button pButton label="Ingresar" type="Submit" label="entrar" class="ColorBtn"></button> 
+            </div>
+        }
+    </div>
+</div>

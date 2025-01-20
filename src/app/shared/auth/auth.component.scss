@@ -1,37 +1,234 @@
-body , html {
-  overflow-y: hidden !important;
-  overflow-x: hidden !important;
-}
-.avatar{
-  border-radius: 100%;
-  border: 2px solid #4ade80;
-  margin-bottom: 2rem;
-}
-.f-li{
-    font-weight: 400;
-}
-.border-rad{
-  border-radius: 13px !important;
-  color: #7d7d7d;
+.customerBGday {
+  background-image: url("./../../res/bg_des_dia.jpg");
+  margin: 1rem;
+  border-radius: 15px;
+  -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
-.advertencia{
-  font-size: 10px;
-  text-align: left;
-  color: #7d7d7d;
+.customerBGntg {
+  background-image: url("./../../res/bg_des_noc.jpg");
+  margin: 1rem;
+  border-radius: 15px;
+  -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
-.separador{
-  margin-top: 2rem;
+
+.creativeBox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
-.text-danger {
-  color: #ff6161;
-  font-size: 12px;
+
+.cristal {
+  background: rgba(255, 255, 255, 0.2); /* Fondo blanco semi-transparente */
+  border-radius: 15px;
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Para Safari */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
-.iconSon{
-  position: fixed;
-  right: 10px;
-  top: 10px;
+
+.iconSon {
+  position: relative;
+  float: right;
 }
-.ColorBtn{
-  color:var(--text-color) ;
+
+@-webkit-keyframes scale-up-hor-left {
+  0% {
+    -webkit-transform: scaleX(0.4);
+    transform: scaleX(0.4);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+  }
 }
+@keyframes scale-up-hor-left {
+  0% {
+    -webkit-transform: scaleX(0.4);
+    transform: scaleX(0.4);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+  }
+}
+
+/* Contenedor principal (grilla de 2 filas y 3 columnas) */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  width: 355px;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  margin-top: 5%;
+}
+
+/* Estilo de las cartas (items) */
+.card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  opacity: 1;
+  transition: transform 2s ease-in-out;
+  width: 160px;
+  height: 160px;
+}
+
+/* Aplicar la animación a cada carta con un retraso para crear el efecto circular */
+.card-item:nth-child(1) {
+  animation: rotateClockwise 12s infinite both;
+}
+.card-item:nth-child(3) {
+  animation: rotateClockwisePos3 12s infinite both;
+}
+.card-item:nth-child(5) {
+  animation: rotateClockwisePos5 12s infinite both;
+}
+.card-item:nth-child(6) {
+  animation: rotateClockwisePos6 12s infinite both;
+}
+.card-item:nth-child(4) {
+  animation: rotateClockwisePos4 12s infinite both;
+}
+.card-item:nth-child(2) {
+  animation: rotateClockwisePos2 12s infinite both;
+}
+/* Animación para mover los elementos en sentido de las manecillas del reloj ING_ROBETO MOLINA*/
+@keyframes rotateClockwise {
+  0% {
+    transform: translate(0, 0);
+  }
+  16.66% {
+    transform: translate(0, 105%);
+  }
+  33.33% {
+    transform: translate(0, 211%);
+  }
+  50% {
+    transform: translate(114%, 211%);
+  }
+  66.66% {
+    transform: translate(114%, 105%);
+  }
+  83.33% {
+    transform: translate(114%, 0);
+  }
+}
+@keyframes rotateClockwisePos2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    16.66% {
+      transform: translate(-113%, -0%);
+    }
+    33.33% {
+      transform: translate(-113%, 107%);
+    }
+    50% {
+      transform: translate(-113%, 212%);
+    }
+    66.66% {
+      transform: translate(0, 212%);
+    }
+    83.33% {
+      transform: translate(0, 105%);
+    }
+  }
+@keyframes rotateClockwisePos3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  16.66% {
+    transform: translate(0, 105%);
+  }
+  33.33% {
+    transform: translate(114%, 106%);
+  }
+  50% {
+    transform: translate(114%, 2%);
+  }
+  66.66% {
+    transform: translate(114%, -105%);
+  }
+  83.33% {
+    transform: translate(0, -105%);
+  }
+}
+@keyframes rotateClockwisePos4 {
+    0% {
+      transform: translate(0, 0);
+    }
+    16.66% {
+      transform: translate(0, -105%);
+    }
+    33.33% {
+      transform: translate(-113%, -107%);
+    }
+    50% {
+      transform: translate(-113%, -0%);
+    }
+    66.66% {
+      transform: translate(-113%, 105%);
+    }
+    83.33% {
+      transform: translate(0, 105%);
+    }
+  }
+  
+@keyframes rotateClockwisePos5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  16.66% {
+    transform: translate(114%, 0%);
+  }
+  33.33% {
+    transform: translate(114%, -110%);
+  }
+  50% {
+    transform: translate(114%, -213%);
+  }
+  66.66% {
+    transform: translate(0, -213%);
+  }
+  83.33% {
+    transform: translate(0, -105%);
+  }
+}
+@keyframes rotateClockwisePos6 {
+  0% {
+    transform: translate(0, 0);
+  }
+  16.66% {
+    transform: translate(0, -108%);
+  }
+  33.33% {
+    transform: translate(0, -212%);
+  }
+  50% {
+    transform: translate(-113%, -212%);
+  }
+  66.66% {
+    transform: translate(-113%, -105%);
+  }
+  83.33% {
+    transform: translate(-113%, 0);
+  }
+}
+
