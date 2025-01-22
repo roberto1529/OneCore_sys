@@ -8,9 +8,5 @@ export const routes: Routes = [
     { path: 'login', component: AuthComponent, title : 'OneCore ERP' },
     { path: 'modulos', component: ModsComponent, title: 'Modulos Contratados' },
     { path: '**', component: NotfoundComponent, title: 'Acceso no autorizado' }              // Ruta 404
-<<<<<<< HEAD
-=======
-
->>>>>>> fb19c4b702db0d76030b5bf0dc6dbbe912529f0e
   ];
 
