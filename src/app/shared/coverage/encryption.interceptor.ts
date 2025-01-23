@@ -16,7 +16,7 @@ export class EncryptionService {
   }
 
   // Desencriptar datos
-  public decryptData(encryptedData: string): any {
+  public decryptData(encryptedData: any): any {
     const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
     const decryptedData = bytes.toString(CryptoJS.enc.Utf8);
     return JSON.parse(decryptedData);

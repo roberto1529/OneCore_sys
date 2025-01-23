@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as root from './../../../shared/data/root.json';
-import { EncryptionService } from '../../coverage/encryption.interceptor';  // Verifica la ruta de importación
+import * as root from '../../../data/root.json';
+import { EncryptionService } from '../../../coverage/encryption.interceptor';  // Verifica la ruta de importación
 
 @Injectable({
   providedIn: 'root',
@@ -19,8 +19,6 @@ export class FormularioService {
     const encryptedData = {
       data: this.cto.encryptData(data)
     };
-
-    console.log('Encrypted Data:', encryptedData);
     return this.http.post(endpoint, encryptedData);  // Enviar datos encriptados
   }
 }

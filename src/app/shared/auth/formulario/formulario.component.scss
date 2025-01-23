@@ -1,6 +1,8 @@
 
 .labl{
-  color: var(--text-color);
+  color: var(--text-color-au);
+  font-size: 12px;
+  text-align: left;
 }
 .labl:hover{
   color: var(--boder-colors-hover);
@@ -22,15 +24,17 @@
   color: #7d7d7d;
 }
 .titulo{
-  color: var(--text-color);
+  color: var(--text-color-au);
 }
 .advertencia{
-  font-size: 10px;
+  font-size: 9px;
   text-align: left;
-  color: #7d7d7d;
+  color: var(--text-color-au);
 }
 .separador{
-  margin-top: 2rem;
+  margin-top: 3rem;
+  padding: 1rem;
+  border-radius: 23px;
 }
 .text-danger {
   color: #ff6161;
@@ -48,9 +52,10 @@
 .input{
   background-color: var(--background-color) !important;
   border: 1px solid var(--boder-colors) !important;
+  border-radius: 9px !important;
 }
 
 .input:hover {
   background-color: var(--background-color) !important;
-  border: 1px solid var(--boder-colors-hover) !important;
+  border: 1px solid var(--p-card-color) !important;
 }
