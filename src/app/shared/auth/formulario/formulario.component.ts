@@ -68,7 +68,7 @@ export class FormularioComponent implements OnInit, OnDestroy  {
     this.startCountdown();
     this.Data = data;
     console.log('Datos Js', this.Data.es);
-    
+
   }
 
   public mensajeError(campo: string, error: string): boolean {
@@ -133,13 +133,13 @@ export class FormularioComponent implements OnInit, OnDestroy  {
 
     /* if (this.fb.value.usuario ==='rmol' && this.fb.value.pass ==='123456') {
           this._router.navigate(['/modulos']);
-             console.log(this.fb.value); 
+             console.log(this.fb.value);
           } */
   }
 
   public onValueOtp(): void{
     console.log(this.fb.value);
-    
+
   }
 
 
