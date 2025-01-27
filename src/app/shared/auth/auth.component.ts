@@ -8,12 +8,13 @@ import { InputOtpModule } from 'primeng/inputotp';
 import { ThemeService } from '../../services/theme.service';
 import { CommonModule } from '@angular/common';
 import { FormularioComponent } from './formulario/formulario.component';
+import { SliderComponent } from "./slider/slider.component";
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [ButtonModule, FloatLabelModule,IconFieldModule,InputIconModule,
-    DatePickerModule, InputOtpModule, CommonModule, FormularioComponent],
+  imports: [ButtonModule, FloatLabelModule, IconFieldModule, InputIconModule,
+    DatePickerModule, InputOtpModule, CommonModule, FormularioComponent, SliderComponent],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
 })
@@ -22,31 +23,12 @@ export class AuthComponent implements OnInit {
   severity: 'success' | 'info' | 'warn' | 'danger' | 'help' | 'primary' | 'secondary' | 'contrast' | null | undefined = 'secondary';
   theme: string='';
 
-  constructor(public themeService: ThemeService){
+  constructor(){
 
   }
-
 
 
   ngOnInit(): void {}
-
-
-  public ColorTheme():void {
-
-    const theme = this.themeService.toggleTheme();
-    this.theme = theme;
-    console.log('theme', theme);
-    if (theme === "primeone-dark") {
-        this.icons = "pi pi-sun";
-        this.severity = "success";
-    }else{
-      this.icons = "pi pi-moon";
-        this.severity = "secondary";
-    }
-
-
-
-  }
 
 
 }

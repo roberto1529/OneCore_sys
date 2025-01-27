@@ -24,8 +24,9 @@
 
 
 .iconSon {
-  position: relative;
-  float: right;
+  position: fixed;
+  top: 17px;
+  right: -35%;
 }
 
 @-webkit-keyframes scale-up-hor-left {
