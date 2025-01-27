@@ -1,27 +1,33 @@
 /* Importación de fuentes y otros recursos */
-@import url('https://fonts.cdnfonts.com/css/jetbrains-mono');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
 @import "primeflex/themes/primeone-light.css";
 @import "primeflex/themes/primeone-dark.css";
-@import 'primeicons/primeicons.css';
 
 /* Definición de variables globales */
 :root {
+/*   color: #034894;
+  color: #98D5F4; */
   /* Variables light */
-  --background-color-light: #f2f2f2;
-  --primary-color-light: #4ade80;
-  --button-background-light: #4ade80;
-  --text-color-light: #272727;
-  --border-solid-light: #42424273;
-  --boder-colors-hover-light: #4ade80;
+  --background-color-light: #FFFFFF;
+  --text-color-btn-light: #fff;
+  --border-solid-light: #034894;
+ --boder-colors-hover-light: #034894;
+  --primary-color-light: #204A63;
+  --button-background-light: #204A63;
+  --text-color-light-au: #034894;
+  --border-solid-light: #034894;
+
 
   /* Variables dark */
   --text-color-dark: #ffffff;
   --border-solid-dark: #d8d8d8;
-  --primary-color-dark: #1a1a1a;
-  --background-color-dark: #292929;
-  --button-background-dark: #333333;
-  --boder-colors-hover-dark: #4ade80;
+  --primary-color-dark: #98D5F4;
+  --background-color-dark: #204A63;
+  --button-background-dark: #98D5F4;
+  --boder-colors-hover-dark: #204A63;
 }
 
 /* Tema claro */
@@ -33,6 +39,7 @@
   --p-button-text-plain-color: var(--text-color-light);
   --background-color: var(--background-color-light);
   --text-color: var(--text-color-light);
+  --text-color-au: var(--text-color-light-au);
   --p-primary-color: var(--primary-color-light);
   --p-button-background: var(--button-background-light);
   --boder-colors: var(--border-solid-light);
@@ -48,14 +55,23 @@
   --p-button-text-plain-color: var(--text-color-dark);
   --background-color: var(--background-color-dark);
   --text-color: var(--text-color-dark);
+  --text-color-au: var(--text-color-dark);
   --p-primary-color: var(--primary-color-dark);
   --p-button-background: var(--button-background-dark);
   --boder-colors: var(--border-solid-dark);
   --boder-colors-hover: var(--boder-colors-hover-dark);
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+}
 
-html, p, span, h1, h2, h3, h4, h5, h6, b, i {
-  font-family: 'JetBrains Mono', sans-serif;
+p, b, label, small, button, ::placeholder {
+  font-family: "Poppins", serif !important;
+  font-optical-sizing: auto;
+}
+input::placeholder{
+  font-size: 13px;
 }
 
 body {
@@ -63,3 +79,29 @@ body {
   overflow: hidden;
 }
 
+.cristal {
+  background: rgba(255, 255, 255, 0.2); /* Fondo blanco semi-transparente */
+  border-radius: 15px;
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Para Safari */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+.p-toast-summary{
+  font-family: "Poppins", serif !important;
+  font-optical-sizing: auto;
+}
+.p-toast-message-error .p-toast-detail {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+}
+
+.p-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding: 1rem;
+  flex-direction: row;
+  align-content: flex-start;
+  height: 15rem;
+}

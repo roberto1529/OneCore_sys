@@ -21,17 +21,12 @@
   align-content: center;
 }
 
-.cristal {
-  background: rgba(255, 255, 255, 0.2); /* Fondo blanco semi-transparente */
-  border-radius: 15px;
-  backdrop-filter: blur(10px); /* Efecto de desenfoque */
-  -webkit-backdrop-filter: blur(10px); /* Para Safari */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-}
+
 
 .iconSon {
-  position: relative;
-  float: right;
+  position: fixed;
+  top: 17px;
+  right: -35%;
 }
 
 @-webkit-keyframes scale-up-hor-left {
