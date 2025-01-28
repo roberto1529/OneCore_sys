@@ -1,18 +1,17 @@
 
 <form [formGroup]="fb" (ngSubmit)="onSubmit()" class="separador p5">
   <div class="avatar" alt="OneCore" > </div>
-  <h3 class="text-center f-li titulo">Bienvinido <br> </h3>
-  <!-- OneCore (ERP) -->
+  <h3 class="text-center f-li titulo">{{Data.es.Titulo}}<br>{{Data.es._subtitulo}} </h3>
   <p class="advertencia text-center ">Por favor, ingrese su usuario y contraseña</p>
   <br>
   <div class="field text-left">
 
-      <label class="labl">Usuario</label>
+      <label class="labl">{{Data.es.$usu}}</label>
       <input type="text" autocomplete="new-password"
             [autocomplete]="false"
             pInputText
             formControlName="usuario"
-            placeholder="ingresa tu usuario"
+            placeholder="{{Data.es.$usuPla}}"
             class="input border-rad text-base
             surface-overlay p-2 border-1 border-solid
             surface-border border-round appearance-none
@@ -25,14 +24,14 @@
     }
   </div>
   <div class="field text-left">
-    <label class="labl">Clave</label>
+    <label class="labl">{{Data.es.$pass}}</label>
     <div class="relative">
       <input
         [type]="isPassword ? 'password' : 'text'"
         autocomplete="new-password"
         pInputText
         formControlName="pass"
-        placeholder="Ingresa tu clave"
+        placeholder="{{Data.es.$passPla}}"
         class="input border-rad text-base
                surface-overlay p-2 border-1 border-solid
                surface-border border-round appearance-none
@@ -61,7 +60,7 @@
       [showTransformOptions]="'translateX(100%)'"
   />
 
-  <button pButton label="Ingresar" type="Submit" icon="pi pi-sign-in" iconPos="right" class="ColorBtn"></button>
+  <button pButton label="{{Data.es.$btnIngreso}}" type="Submit" icon="pi pi-sign-in" iconPos="right" class="ColorBtn"></button>
 
 </form>
 
@@ -71,7 +70,7 @@
           <div class="text-center p-3 headIcon">
                <i class="pi pi-verified otpIco"></i>
 
-               <h4 class="font-bold text-xl mb-2">Autenticación de tu cuenta.</h4>
+               <h4 class="font-bold text-xl mb-2">Autenticación de tu cuenta</h4>
                <p class="text-muted-color block mb-8">Por favor ingresa la clave dinamica <br> envia a su correo.</p>
           </div>
           <br>

@@ -19,6 +19,7 @@ import { RespondeAuth } from './types/responses.interfaces';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
+import * as data from '../data/lang.json'
 
 @Component({
   selector: 'sub-app-formulario',
@@ -43,10 +44,11 @@ export class FormularioComponent implements OnInit, OnDestroy  {
   severity: | 'success' | 'info' | 'warn' | 'danger' | 'help' | 'primary' | 'secondary' | 'contrast' | null | undefined = 'secondary';
   isPassword = true;
   eyeIcons: string = 'pi pi-eye'
-  visible: boolean = true;
+  visible: boolean = false;
   timeLeft: number = 5 * 60; // 5 minutos en segundos
   timer: any;
-  formattedTime: string = ''; 
+  formattedTime: string = '';
+  Data: any;
   constructor(
     private formBuilder: FormBuilder,
     private _router: Router,
@@ -63,7 +65,10 @@ export class FormularioComponent implements OnInit, OnDestroy  {
   }
 
   ngOnInit(): void {
-    this.startCountdown();
+    // this.startCountdown();
+    this.Data = data;
+    console.log('Datos Js', this.Data.es);
+    
   }
 
   public mensajeError(campo: string, error: string): boolean {
