@@ -141,4 +141,22 @@
   border-right-style: solid;
   border-color: var(--p-inputtext-border-color);
 }
+.time{
+  
+  height: 100px;
+  .titulo{
+    font-size: 20px;
+    margin-bottom: -12%;
+  }
+  .reloj{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
 

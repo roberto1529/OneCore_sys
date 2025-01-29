@@ -44,7 +44,7 @@ export class FormularioComponent implements OnInit, OnDestroy  {
   severity: | 'success' | 'info' | 'warn' | 'danger' | 'help' | 'primary' | 'secondary' | 'contrast' | null | undefined = 'secondary';
   isPassword = true;
   eyeIcons: string = 'pi pi-eye'
-  visible: boolean = false;
+  visible: boolean = true;
   timeLeft: number = 5 * 60; // 5 minutos en segundos
   timer: any;
   formattedTime: string = '';
@@ -65,7 +65,7 @@ export class FormularioComponent implements OnInit, OnDestroy  {
   }
 
   ngOnInit(): void {
-    // this.startCountdown();
+    this.startCountdown();
     this.Data = data;
     console.log('Datos Js', this.Data.es);
     

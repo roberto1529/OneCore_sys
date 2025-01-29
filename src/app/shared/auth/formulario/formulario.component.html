@@ -78,7 +78,20 @@
 
     <div class="box">
       <form [formGroup]="fb" (ngSubmit)="onValueOtp()" >
-        tiempo restante:  <h1>{{ formattedTime }}</h1> <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+
+        <div class="time">
+          <div class="titulo">
+            <h5>Tiempo restante</h5>
+          </div>
+          <div class="reloj">
+            <div class="contador">
+                <h4>{{ formattedTime }}</h4>
+            </div>
+            <div class="spiner">
+              <i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i>
+            </div>
+          </div>
+        </div>
         <p-inputotp [length]="4" formControlName="token">
           <ng-template #input let-token let-events="events" let-index="index">
               <input type="text" formControlName="token" [maxLength]="1" (input)="events.input($event)" (keydown)="events.keydown($event)" [attr.value]="token"
