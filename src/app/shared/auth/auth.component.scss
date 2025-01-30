@@ -1,6 +1,6 @@
 .customerBGday {
   background-image: url("./../../res/bg_des_dia.jpg");
-  margin: 1rem;
+  margin: 1.0rem;
   border-radius: 15px;
   -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
   animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
@@ -8,7 +8,7 @@
 
 .customerBGntg {
   background-image: url("./../../res/bg_des_noc.jpg");
-  margin: 1rem;
+  margin: 1.0rem;
   border-radius: 15px;
   -webkit-animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
   animation: scale-up-hor-left 3.2s cubic-bezier(0.23, 1, 0.32, 1) both;
@@ -185,7 +185,7 @@
       transform: translate(0, 105%);
     }
   }
-  
+
 @keyframes rotateClockwisePos5 {
   0% {
     transform: translate(0, 0);
