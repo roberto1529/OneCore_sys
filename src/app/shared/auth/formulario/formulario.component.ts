@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
+  ValidationErrors,
   Validators,
 } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
@@ -38,13 +40,13 @@ import * as data from '../data/lang.json'
   styleUrl: './formulario.component.scss',
   providers: [MessageService],
 })
-export class FormularioComponent implements OnInit, OnDestroy  {
+export class FormularioComponent implements OnInit  {
   fb: FormGroup;
   icons: string = 'pi pi-moon';
   severity: | 'success' | 'info' | 'warn' | 'danger' | 'help' | 'primary' | 'secondary' | 'contrast' | null | undefined = 'secondary';
   isPassword = true;
   eyeIcons: string = 'pi pi-eye'
-  visible: boolean = true;
+  visible: boolean = false;
   timeLeft: number = 5 * 60; // 5 minutos en segundos
   timer: any;
   formattedTime: string = '';
@@ -57,18 +59,66 @@ export class FormularioComponent implements OnInit, OnDestroy  {
     private msjServices: MessageService
   ) {
     this.fb = this.formBuilder.group({
-      usuario: ['', [Validators.required, Validators.minLength(3)]],
-      pass: ['', [Validators.required, Validators.minLength(6)]],
+      usuario: ['', [
+        Validators.required,
+        Validators.minLength(3),
+        this.noWhitespaceValidator // Validador personalizado para espacios
+      ]],
+      id_user:[],
+      pass: ['', [
+        Validators.required,
+        Validators.minLength(8),
+        this.passwordValidator // Validador personalizado
+      ]],
+      passcryto: [],
       // email: ['', [Validators.required, Validators.email]],
       token: [],
     });
   }
 
   ngOnInit(): void {
-    this.startCountdown();
     this.Data = data;
     console.log('Datos Js', this.Data.es);
 
+  }
+  
+  // Validador personalizado para espacios en blanco
+  noWhitespaceValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value as string;
+    
+    if (!value) return null;
+
+    // Verifica si hay espacios en cualquier posición
+    const hasWhitespace = /\s/.test(value);
+    
+    return hasWhitespace ? { whitespace: true } : null;
+  }
+  // Función de validación personalizada
+  passwordValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    
+    if (!value) return null;
+
+    const validationErrors: ValidationErrors = {};
+
+    // 1. Primera letra mayúscula
+    if (!/^[A-Z]/.test(value)) {
+      validationErrors['uppercaseStart'] = true;
+    }
+
+    // 2. Al menos un número
+    if (!/\d/.test(value)) {
+      validationErrors['requiresNumber'] = true;
+    }
+
+    // 3. Al menos un carácter especial (puedes modificar estos símbolos)
+    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(value)) {
+      validationErrors['requiresSpecialChar'] = true;
+    }
+
+    // 4. Mínimo 8 caracteres (ya cubierto por Validators.minLength(8))
+
+    return Object.keys(validationErrors).length > 0 ? validationErrors : null;
   }
 
   public mensajeError(campo: string, error: string): boolean {
@@ -123,18 +173,43 @@ export class FormularioComponent implements OnInit, OnDestroy  {
       return;
     }
 
-    this.fb.patchValue({ pass: Md5.hashStr(this.fb.value.pass) });
-
-    this.service.Auth_Service(this.fb.value).subscribe((res: RespondeAuth) => {
-      let response = this.cto.decryptData(res);
-      console.log('Respuesta servidor =>', response);
-      this.visible = true;
-    });
-
-    /* if (this.fb.value.usuario ==='rmol' && this.fb.value.pass ==='123456') {
+    //lanzamos peticion al servidor
+    this.fb.patchValue({ passcryto: Md5.hashStr(this.fb.value.pass) });
+    
+    this.ManagerPeticioneAuth();
+  /*   if (this.fb.value.usuario ==='rmol' && this.fb.value.pass ==='123456') {
           this._router.navigate(['/modulos']);
              console.log(this.fb.value);
-          } */
+    } */
+  }
+
+  private ManagerPeticioneAuth(): void{
+      this.service.Auth_Service(this.fb.value).subscribe((res: RespondeAuth) => {
+        let response = this.cto.decryptData(res);
+        console.log('Respuesta servidor =>', response);
+        
+        if (response.status === 200) {
+          this.ToastAlert(
+            'info',
+            'Hemos enviado tu clave dinamica a tu correo',
+            'Por favor ingresa la clave enviada.',
+            false
+          );
+          this.fb.get('token')?.reset();
+          this.visible = true;
+          this.startCountdown();
+        }else{
+          this.ToastAlert(
+            'error',
+            'Error de autenticacion',
+            response.data,
+            false
+          );
+          this.visible = false;
+          this.fb.reset();
+        }
+
+      });
   }
 
   public onValueOtp(): void{
@@ -150,6 +225,7 @@ export class FormularioComponent implements OnInit, OnDestroy  {
         this.timeLeft--;
         this.updateFormattedTime();
       } else {
+        this.fb.get('token')?.disable();
         clearInterval(this.timer);
       }
     }, 1000);
@@ -165,9 +241,5 @@ export class FormularioComponent implements OnInit, OnDestroy  {
     return num < 10 ? `0${num}` : `${num}`;
   }
 
-  ngOnDestroy() {
-    if (this.timer) {
-      clearInterval(this.timer);
-    }
-  }
+ 
 }
