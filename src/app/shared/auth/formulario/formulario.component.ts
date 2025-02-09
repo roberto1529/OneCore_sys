@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 import { FormularioService } from './services/formulario.service';
 import { Md5 } from 'ts-md5';
 import { EncryptionService } from '../../coverage/encryption.interceptor';
-import { RespondeAuth } from './types/responses.interfaces';
+import { RespondeAuth, UserInfoAuth } from './types/responses.interfaces';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
@@ -51,6 +51,7 @@ export class FormularioComponent implements OnInit  {
   timer: any;
   formattedTime: string = '';
   Data: any;
+  UserInfo!: UserInfoAuth;
   constructor(
     private formBuilder: FormBuilder,
     private _router: Router,
@@ -81,22 +82,22 @@ export class FormularioComponent implements OnInit  {
     console.log('Datos Js', this.Data.es);
 
   }
-  
+
   // Validador personalizado para espacios en blanco
   noWhitespaceValidator(control: AbstractControl): ValidationErrors | null {
     const value = control.value as string;
-    
+
     if (!value) return null;
 
     // Verifica si hay espacios en cualquier posición
     const hasWhitespace = /\s/.test(value);
-    
+
     return hasWhitespace ? { whitespace: true } : null;
   }
   // Función de validación personalizada
   passwordValidator(control: AbstractControl): ValidationErrors | null {
     const value = control.value;
-    
+
     if (!value) return null;
 
     const validationErrors: ValidationErrors = {};
@@ -128,11 +129,7 @@ export class FormularioComponent implements OnInit  {
     );
   }
 
-  private ToastAlert(
-    severity: string,
-    summary: string,
-    detail: string,
-    sticky: boolean
+  private ToastAlert(severity: string, summary: string,  detail?: any, sticky?: boolean
   ) {
     this.msjServices.clear();
     this.msjServices.add({
@@ -175,8 +172,9 @@ export class FormularioComponent implements OnInit  {
 
     //lanzamos peticion al servidor
     this.fb.patchValue({ passcryto: Md5.hashStr(this.fb.value.pass) });
-    
+
     this.ManagerPeticioneAuth();
+    this.startCountdown();
   /*   if (this.fb.value.usuario ==='rmol' && this.fb.value.pass ==='123456') {
           this._router.navigate(['/modulos']);
              console.log(this.fb.value);
@@ -186,18 +184,24 @@ export class FormularioComponent implements OnInit  {
   private ManagerPeticioneAuth(): void{
       this.service.Auth_Service(this.fb.value).subscribe((res: RespondeAuth) => {
         let response = this.cto.decryptData(res);
+        const { id, correo, usuario } = response.data[0];
         console.log('Respuesta servidor =>', response);
-        
+        this.UserInfo = {
+          usuario: usuario,
+          id: id,
+          correo: correo
+        }
+
         if (response.status === 200) {
           this.ToastAlert(
             'info',
-            'Hemos enviado tu clave dinamica a tu correo',
-            'Por favor ingresa la clave enviada.',
+            `Hola ${usuario},  Hemos enviado tu clave dinamica a tu correo, Por favor ingresa la clave enviada.`,
             false
           );
+          this.fb.patchValue({ id_user: id });
           this.fb.get('token')?.reset();
           this.visible = true;
-          this.startCountdown();
+
         }else{
           this.ToastAlert(
             'error',
@@ -213,23 +217,39 @@ export class FormularioComponent implements OnInit  {
   }
 
   public onValueOtp(): void{
-    console.log(this.fb.value);
+
+    this.service.Auth_Validar_token(this.fb.value).subscribe((res)=>{
+        let response = this.cto.decryptData(res);
+        console.log('Respueta de token',response);
+
+    })
 
   }
 
 
   startCountdown() {
+    // Detener cualquier temporizador previo
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
+
+    // Establecer el tiempo restante a 5 minutos (300 segundos)
+    this.timeLeft = 300;
+
     this.updateFormattedTime(); // Actualiza el tiempo formateado inicialmente
+
     this.timer = setInterval(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--;
+        this.fb.get('token')?.enable(); // Habilitar el token
         this.updateFormattedTime();
       } else {
-        this.fb.get('token')?.disable();
-        clearInterval(this.timer);
+        this.fb.get('token')?.disable(); // Deshabilitar el token
+        clearInterval(this.timer); // Detener el temporizador cuando llegue a 0
       }
     }, 1000);
   }
+
 
   updateFormattedTime() {
     const minutes = Math.floor(this.timeLeft / 60);
@@ -241,5 +261,5 @@ export class FormularioComponent implements OnInit  {
     return num < 10 ? `0${num}` : `${num}`;
   }
 
- 
+
 }

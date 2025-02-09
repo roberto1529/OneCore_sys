@@ -21,4 +21,16 @@ export class FormularioService {
     };
     return this.http.post(endpoint, encryptedData);  // Enviar datos encriptados
   }
+
+  public Auth_Validar_token(data: any){
+
+    const { host, port, modulo, version, rutas } = this.ep;
+    const endpoint = `${host}${port}${modulo}${version}${rutas.token}`;
+
+    // Encriptar datos antes de enviarlos
+    const encryptedData = {
+      data: this.cto.encryptData(data)
+    };
+    return this.http.post(endpoint, encryptedData);  // Enviar datos encriptados
+  }
 }
